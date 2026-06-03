@@ -47,4 +47,11 @@ export default defineNuxtConfig({
   image: {
     domains: ['images.unsplash.com'],
   },
+
+  runtimeConfig: {
+    public: {
+      applicationFormUrl: process.env.NUXT_PUBLIC_APPLICATION_FORM_URL || '',
+      applicationFormSecret: process.env.NUXT_PUBLIC_APPLICATION_FORM_SECRET || '',
+    },
+  },
 })

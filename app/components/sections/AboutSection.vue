@@ -36,7 +36,7 @@ const features = [
             />
           </div>
           <div
-            class="absolute left-4 top-6 rounded-2xl bg-white px-5 py-4 shadow-lg"
+            class="absolute -left-4 -top-6 rounded-2xl border border-[#DBDDE2] bg-white px-5 py-4 shadow-[0_4px_24px_rgba(14,30,62,0.24)]"
           >
             <p class="text-xs text-gray-body">Class size</p>
             <p class="mt-1 font-serif text-xl font-normal text-navy">
@@ -44,10 +44,10 @@ const features = [
             </p>
           </div>
           <div
-            class="absolute -bottom-4 right-4 rounded-2xl bg-navy-bg px-5 py-4 shadow-lg"
+            class="absolute -bottom-6 -right-12 rounded-2xl bg-navy-bg px-5 py-4 shadow-lg max-w-[259px]"
           >
             <p class="font-serif text-3xl font-normal text-white">15+</p>
-            <p class="mt-1 text-[10px] font-medium uppercase tracking-wider text-white/70">
+            <p class="mt-1 font-medium uppercase tracking-wider text-white/70">
               Years shaping futures in Eket
             </p>
           </div>

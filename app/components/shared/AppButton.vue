@@ -10,18 +10,20 @@ const props = withDefaults(
     type?: 'button' | 'submit'
     icon?: 'arrow' | 'phone' | 'none'
     block?: boolean
+    disabled?: boolean
   }>(),
   {
     variant: 'primary',
     type: 'button',
     icon: 'none',
     block: false,
+    disabled: false,
   },
 )
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    'bg-navy-bg text-white hover:bg-navy-bg/90 focus-visible:ring-navy-bg',
+    'bg-navy-bg text-white hover:bg-navy-bg/90 focus-visible:ring-navy-bg disabled:cursor-not-allowed disabled:opacity-60',
   secondary:
     'border border-green/40 bg-white text-green hover:bg-green/5 focus-visible:ring-green',
   green:
@@ -42,6 +44,7 @@ const classes = computed(() => [
     :is="href ? 'a' : 'button'"
     :href="href"
     :type="href ? undefined : type"
+    :disabled="href ? undefined : disabled"
     :class="classes"
   >
     <slot />

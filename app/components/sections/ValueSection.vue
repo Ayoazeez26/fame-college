@@ -29,7 +29,7 @@ const parentBenefits = [
 
       <div class="mt-12 grid gap-6 lg:grid-cols-2">
         <article
-          class="rounded-3xl border border-border bg-white p-8 lg:p-10"
+          class="rounded-3xl border border-border bg-[#FBFCFC] p-8 lg:p-10"
         >
           <div class="flex items-center gap-4">
             <span
