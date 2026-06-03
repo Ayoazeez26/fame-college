@@ -1,0 +1,85 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi/Satoshi-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi/Satoshi-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi/Satoshi-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-serif: 'Times New Roman', Times, 'Liberation Serif', serif;
+  --font-sans: 'Satoshi', ui-sans-serif, system-ui, sans-serif;
+
+  --color-navy: #0b1832;
+  --color-navy-bg: #0d1c3a;
+  --color-navy-footer: #0d1c3a;
+  --color-green: #37905b;
+  --color-green-muted: #37905b;
+  --color-mint: color-mix(in srgb, #37905b 30%, white);
+  --color-gray-body: #6b7280;
+  --color-border: #e5e7eb;
+
+  --color-step-lavender: #e6e6fa;
+  --color-step-cream: #fff9e3;
+  --color-step-cyan: #e0ffff;
+  --color-step-peach: #ffe5d9;
+
+  --width-page: 1280px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-navy antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 400;
+  }
+}
+
+@layer utilities {
+  .section-container {
+    @apply mx-auto w-full max-w-(--width-page) px-4 sm:px-6;
+    @apply min-[1280px]:w-(--width-page) min-[1280px]:max-w-(--width-page) min-[1280px]:px-0;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
