@@ -57,7 +57,7 @@ const supportCard = cards[4]
 <template>
   <section class="py-16 lg:py-24">
     <div class="section-container">
-      <div class="grid gap-8 lg:grid-cols-[1fr_400px] lg:items-center">
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-[1fr_400px] lg:items-center">
         <div>
           <SectionEyebrow label="Why Fame College" />
           <h2

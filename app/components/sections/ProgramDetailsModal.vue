@@ -64,7 +64,7 @@ onUnmounted(() => {
     >
       <div
         v-if="open && program"
-        class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+        class="fixed inset-0 z-50 flex items-end justify-center p-4 sm:items-center sm:p-6"
         role="presentation"
       >
         <div
@@ -87,7 +87,7 @@ onUnmounted(() => {
             role="dialog"
             aria-modal="true"
             :aria-labelledby="titleId"
-            class="relative flex max-h-[min(90vh,800px)] w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-white shadow-[0_24px_60px_rgba(11,24,50,0.2)]"
+            class="relative flex max-h-[min(90dvh,800px)] w-full max-w-2xl flex-col overflow-hidden rounded-3xl rounded-b-none bg-white shadow-[0_24px_60px_rgba(11,24,50,0.2)] sm:max-h-[min(90vh,800px)] sm:rounded-3xl"
           >
             <div class="overflow-y-auto px-6 pb-6 pt-6 sm:px-8 sm:pt-8">
               <div class="flex items-start justify-between gap-4">

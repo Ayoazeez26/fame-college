@@ -35,8 +35,10 @@ const canGoPrev = computed(() => activeIndex.value > 0)
 const canGoNext = computed(() => activeIndex.value < steps.length - 1)
 const allExpanded = computed(() => activeIndex.value === steps.length - 1)
 
-const STACK_PEEK_REM = 10.5
-const STACK_OFFSET_REM = 1.25
+const isLgUp = useMediaQuery('(min-width: 1024px)')
+
+const stackPeekRem = computed(() => (isLgUp.value ? 10.5 : 8.5))
+const stackOffsetRem = computed(() => (isLgUp.value ? 1.25 : 1))
 
 const stackCount = computed(() => steps.length - activeIndex.value - 1)
 
@@ -44,7 +46,7 @@ const stackContainerStyle = computed(() => {
   const count = stackCount.value
   if (count <= 0) return {}
   const width =
-    STACK_PEEK_REM + Math.max(0, count - 1) * STACK_OFFSET_REM
+    stackPeekRem.value + Math.max(0, count - 1) * stackOffsetRem.value
   return { width: `${width}rem` }
 })
 
@@ -66,7 +68,7 @@ function isInStack(index: number) {
 }
 
 function stackOffset(index: number) {
-  return (index - activeIndex.value - 1) * STACK_OFFSET_REM
+  return (index - activeIndex.value - 1) * stackOffsetRem.value
 }
 
 function stackZIndex(index: number) {
@@ -134,7 +136,7 @@ function next() {
       <div class="mt-10">
         <div
           v-if="allExpanded"
-          class="step-track flex w-full items-stretch"
+          class="step-track grid w-full grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4"
           role="list"
           aria-label="Application steps"
         >
@@ -142,12 +144,8 @@ function next() {
             v-for="(step, index) in steps"
             :key="step.num"
             role="listitem"
-            class="step-card shrink-0 origin-left overflow-hidden p-6 text-navy transition-[width,border-radius] duration-500 ease-out"
-            :class="[
-              step.bg,
-              expandedShapeClass(index),
-              cardWidthClass(),
-            ]"
+            class="step-card step-card--grid w-full overflow-hidden rounded-3xl p-6 text-navy"
+            :class="[step.bg]"
             :style="{ zIndex: index + 1 }"
           >
             <p class="font-serif text-2xl font-normal">{{ step.num }}</p>
@@ -162,17 +160,19 @@ function next() {
 
         <div
           v-else
-          class="step-track flex w-full items-stretch justify-between"
+          class="step-track flex w-full min-w-0 flex-col gap-6 lg:flex-row lg:items-stretch lg:justify-between"
           role="list"
           aria-label="Application steps"
         >
-          <div class="flex shrink-0 items-stretch">
+          <div
+            class="flex min-w-0 flex-col gap-4 md:flex-row md:items-stretch"
+          >
             <article
               v-for="(step, index) in steps"
               v-show="isExpanded(index)"
               :key="step.num"
               role="listitem"
-              class="step-card shrink-0 origin-left overflow-hidden p-6 text-navy transition-[width,border-radius] duration-500 ease-out"
+              class="step-card w-full shrink-0 origin-left overflow-hidden p-6 text-navy transition-[width,border-radius] duration-500 ease-out md:w-auto"
               :class="[
                 step.bg,
                 expandedShapeClass(index),
@@ -191,7 +191,7 @@ function next() {
           </div>
 
           <div
-            class="step-stack relative shrink-0"
+            class="step-stack relative shrink-0 self-end lg:self-auto"
             :style="stackContainerStyle"
             aria-hidden="true"
           >
@@ -230,15 +230,25 @@ function next() {
   min-height: 18rem;
 }
 
+.step-card--grid {
+  max-width: none;
+}
+
 .step-card--expanded {
   flex: 0 0 auto;
-  width: min(22.5rem, calc(100vw - 3rem));
+  width: min(22.5rem, 100%);
+}
+
+@media (min-width: 768px) {
+  .step-card--expanded {
+    width: min(22.5rem, calc(100vw - 3rem));
+  }
 }
 
 .step-card--stacked {
-  width: 10.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.25rem;
+  width: 8.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1rem;
 }
 
 .step-card--expanded-fill {
@@ -251,15 +261,13 @@ function next() {
   .step-card--expanded {
     width: min(22.5rem, 42vw);
   }
-
-  .step-card--stacked {
-    width: 11.5rem;
-  }
 }
 
 @media (min-width: 1024px) {
   .step-card--stacked {
     width: 12.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.25rem;
   }
 }
 </style>

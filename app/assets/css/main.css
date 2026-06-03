@@ -51,7 +51,7 @@
   }
 
   body {
-    @apply font-sans text-navy antialiased;
+    @apply overflow-x-hidden font-sans text-navy antialiased;
   }
 
   h1,

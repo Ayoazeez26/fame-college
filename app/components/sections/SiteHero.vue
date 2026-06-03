@@ -12,10 +12,12 @@ const heroStats = [
 <template>
   <section class="overflow-hidden pb-12 pt-8 lg:pb-20 lg:pt-12">
     <div class="section-container">
-      <div class="flex items-center justify-start gap-2">
-        <div class="w-full max-w-[712px]">
+      <div
+        class="flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-12"
+      >
+        <div class="w-full min-w-0 max-w-[712px] lg:flex-1">
           <p
-            class="mb-6 inline-flex rounded-full border border-[#BCC2CC] px-4 py-2 text-xs text-[#2C2C2C]"
+            class="mb-6 inline-flex max-w-full rounded-full border border-[#BCC2CC] px-4 py-2 text-xs text-[#2C2C2C]"
           >
             WAEC • NECO • Cambridge • Edexcel - accredited pathways
           </p>
@@ -66,7 +68,7 @@ const heroStats = [
           </div>
         </div>
 
-        <div class="relative mx-auto w-full max-w-[504px]">
+        <div class="relative w-full min-w-0 max-w-[504px] shrink-0 lg:mx-0">
           <div class="relative overflow-hidden rounded-3xl">
             <NuxtImg
               src="/images/hero-student.webp"

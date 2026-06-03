@@ -5,7 +5,7 @@ import { teachers } from '~/data/teachers'
 <template>
   <section id="faculty" class="py-16 lg:py-24">
     <div class="section-container">
-      <div class="grid gap-6 lg:grid-cols-[1fr_384px] lg:items-end">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-[1fr_384px] lg:items-end">
         <div>
           <SectionEyebrow label="FACULTY" />
           <h2
@@ -21,7 +21,7 @@ import { teachers } from '~/data/teachers'
       </div>
 
       <div
-        class="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-4"
+        class="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 sm:gap-8 lg:grid-cols-4"
       >
         <TeacherCard
           v-for="teacher in teachers"

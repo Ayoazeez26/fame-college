@@ -66,7 +66,7 @@ const features = [
             tutorials — nurturing academic excellence, character and global
             readiness in Eket, Akwa Ibom.
           </p>
-          <div class="mt-8 grid gap-4 sm:grid-cols-3">
+          <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <FeatureCard
               v-for="feat in features"
               :key="feat.title"

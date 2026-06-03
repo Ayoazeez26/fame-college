@@ -39,7 +39,7 @@ function next() {
       </div>
 
       <!-- Mobile / tablet -->
-      <div class="relative mt-12 lg:hidden">
+      <div class="relative mt-12 px-12 sm:px-14 lg:hidden">
         <div class="grid items-center gap-10">
           <div class="relative mx-auto w-fit">
             <span
@@ -121,7 +121,7 @@ function next() {
         </button>
 
         <div
-          class="flex min-w-0 flex-1 items-center justify-center gap-[147px] px-[124px]"
+          class="flex min-w-0 flex-1 items-center justify-center gap-8 px-4 lg:gap-12 xl:gap-[147px] xl:px-[124px]"
         >
           <div class="relative shrink-0">
             <span
@@ -141,7 +141,7 @@ function next() {
             </div>
           </div>
 
-          <div class="relative w-[469px] shrink-0">
+          <div class="relative min-w-0 flex-1 max-w-[469px]">
             <span
               class="absolute left-0 top-0 font-serif text-6xl leading-none text-mint"
               aria-hidden="true"
