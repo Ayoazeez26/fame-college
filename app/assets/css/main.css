@@ -50,8 +50,15 @@
     scroll-behavior: smooth;
   }
 
+  @media (max-width: 1023px) {
+    html,
+    body {
+      overflow-x: hidden;
+    }
+  }
+
   body {
-    @apply overflow-x-hidden font-sans text-navy antialiased;
+    @apply font-sans text-navy antialiased;
   }
 
   h1,

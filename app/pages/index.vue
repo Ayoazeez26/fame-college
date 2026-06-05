@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="max-lg:overflow-x-hidden">
     <SiteNavbar />
     <main>
       <SiteHero />

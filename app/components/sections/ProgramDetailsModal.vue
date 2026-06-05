@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useScrollLock } from '@vueuse/core'
 import { ArrowUpRight, X } from 'lucide-vue-next'
 import type { ProgramCard } from '~/data/programs'
 
@@ -13,6 +14,26 @@ const emit = defineEmits<{
 }>()
 
 const titleId = 'program-modal-title'
+const isModalOpen = computed(() => props.open && !!props.program)
+const scrollLocked = useScrollLock()
+
+watch(
+  isModalOpen,
+  (isOpen) => {
+    scrollLocked.value = isOpen
+    if (import.meta.client) {
+      document.documentElement.classList.toggle('overflow-hidden', isOpen)
+    }
+  },
+  { immediate: true },
+)
+
+onUnmounted(() => {
+  scrollLocked.value = false
+  if (import.meta.client) {
+    document.documentElement.classList.remove('overflow-hidden')
+  }
+})
 
 function onBackdropClick() {
   emit('close')
@@ -21,21 +42,6 @@ function onBackdropClick() {
 function onEnquire() {
   emit('enquire')
 }
-
-watch(
-  () => props.open,
-  (isOpen) => {
-    if (import.meta.client) {
-      document.body.style.overflow = isOpen ? 'hidden' : ''
-    }
-  },
-)
-
-onUnmounted(() => {
-  if (import.meta.client) {
-    document.body.style.overflow = ''
-  }
-})
 
 function onKeydown(event: KeyboardEvent) {
   if (event.key === 'Escape' && props.open) {
@@ -64,13 +70,14 @@ onUnmounted(() => {
     >
       <div
         v-if="open && program"
-        class="fixed inset-0 z-50 flex items-end justify-center p-4 sm:items-center sm:p-6"
+        class="fixed inset-0 z-50 flex items-end justify-center overscroll-none p-4 sm:items-center sm:p-6"
         role="presentation"
       >
         <div
           class="absolute inset-0 bg-navy/60 backdrop-blur-sm"
           aria-hidden="true"
           @click="onBackdropClick"
+          @touchmove.prevent
         />
 
         <Transition

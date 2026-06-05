@@ -7,24 +7,32 @@ const steps = [
     title: 'Register',
     body: 'Begin your application in minutes — choose a campus or online pathway that fits your goals, schedule, and learning style, and take the first step toward your future today.',
     bg: 'bg-step-lavender',
+    icon: '/images/how-it-works/register.png',
+    iconAlt: 'Secure registration on mobile',
   },
   {
     num: '02',
     title: 'Get Access',
     body: 'Receive your student portal credentials, timetable and onboarding resources so your family knows exactly what happens next.',
     bg: 'bg-step-cream',
+    icon: '/images/how-it-works/get-access.png',
+    iconAlt: 'Student portal and onboarding',
   },
   {
     num: '03',
     title: 'Start Learning',
     body: 'Join on-campus classes or live online tutorials with structured lessons, revision materials and mentor check-ins.',
     bg: 'bg-step-cyan',
+    icon: '/images/how-it-works/start-learning.png',
+    iconAlt: 'Global learning resources',
   },
   {
     num: '04',
     title: 'Mentorship & Support',
     body: 'Ongoing academic mentoring, progress updates for parents, and exam-focused coaching through every term.',
     bg: 'bg-step-peach',
+    icon: '/images/how-it-works/mentorship.png',
+    iconAlt: 'Online mentorship and support',
   },
 ] as const
 
@@ -130,16 +138,24 @@ function next() {
             v-for="step in steps"
             :key="step.num"
             role="listitem"
-            class="w-full overflow-hidden rounded-3xl p-6 text-navy"
+            class="step-card relative w-full overflow-hidden rounded-3xl p-6 text-navy"
             :class="step.bg"
           >
             <p class="font-serif text-2xl font-normal">{{ step.num }}</p>
             <h3 class="mt-4 font-serif text-xl font-normal">
               {{ step.title }}
             </h3>
-            <p class="mt-3 text-sm leading-relaxed text-navy/80">
+            <p class="step-card__text mt-3 text-sm leading-relaxed text-navy/80">
               {{ step.body }}
             </p>
+            <img
+              :src="step.icon"
+              :alt="step.iconAlt"
+              class="step-card__icon pointer-events-none absolute bottom-4 right-4 h-20 w-auto sm:h-24"
+              width="96"
+              height="96"
+              loading="lazy"
+            >
           </article>
         </div>
 
@@ -155,7 +171,7 @@ function next() {
               v-for="(step, index) in steps"
               :key="step.num"
               role="listitem"
-              class="step-card step-card--grid w-full overflow-hidden rounded-3xl p-6 text-navy"
+              class="step-card step-card--grid relative w-full overflow-hidden rounded-3xl p-6 text-navy"
               :class="[step.bg]"
               :style="{ zIndex: index + 1 }"
             >
@@ -163,9 +179,17 @@ function next() {
               <h3 class="mt-4 font-serif text-xl font-normal">
                 {{ step.title }}
               </h3>
-              <p class="mt-3 text-sm leading-relaxed text-navy/80">
+              <p class="step-card__text mt-3 text-sm leading-relaxed text-navy/80">
                 {{ step.body }}
               </p>
+              <img
+                :src="step.icon"
+                :alt="step.iconAlt"
+                class="step-card__icon pointer-events-none absolute bottom-4 right-4 h-24 w-auto"
+                width="96"
+                height="96"
+                loading="lazy"
+              >
             </article>
           </div>
 
@@ -181,7 +205,7 @@ function next() {
                 v-show="isExpanded(index)"
                 :key="step.num"
                 role="listitem"
-                class="step-card shrink-0 origin-left overflow-hidden rounded-3xl p-6 text-navy transition-[width] duration-500 ease-out"
+                class="step-card relative shrink-0 origin-left overflow-hidden rounded-3xl p-6 text-navy transition-[width] duration-500 ease-out"
                 :class="[step.bg, cardWidthClass()]"
                 :style="{ zIndex: index + 1 }"
               >
@@ -189,9 +213,17 @@ function next() {
                 <h3 class="mt-4 font-serif text-xl font-normal">
                   {{ step.title }}
                 </h3>
-                <p class="mt-3 text-sm leading-relaxed text-navy/80">
+                <p class="step-card__text mt-3 text-sm leading-relaxed text-navy/80">
                   {{ step.body }}
                 </p>
+                <img
+                  :src="step.icon"
+                  :alt="step.iconAlt"
+                  class="step-card__icon pointer-events-none absolute bottom-4 right-4 h-24 w-auto"
+                  width="96"
+                  height="96"
+                  loading="lazy"
+                >
               </article>
             </div>
 
@@ -204,7 +236,7 @@ function next() {
                 v-for="(step, index) in steps"
                 v-show="isInStack(index)"
                 :key="`stack-${step.num}`"
-                class="step-card absolute top-0 h-full overflow-hidden rounded-3xl p-6 text-navy transition-[left] duration-500 ease-out"
+                class="step-card step-card--stacked absolute top-0 h-full overflow-hidden rounded-3xl p-6 text-navy transition-[left] duration-500 ease-out"
                 :class="step.bg"
                 :style="{
                   left: `${stackOffset(index)}rem`,
@@ -216,7 +248,7 @@ function next() {
                 <h3 class="mt-4 font-serif text-xl font-normal">
                   {{ step.title }}
                 </h3>
-                <p class="mt-3 text-sm leading-relaxed text-navy/80">
+                <p class="step-card__text mt-3 text-sm leading-relaxed text-navy/80">
                   {{ step.body }}
                 </p>
               </article>
@@ -237,7 +269,38 @@ function next() {
 <style scoped>
 .step-track,
 .step-stack {
-  min-height: 18rem;
+  min-height: 20rem;
+}
+
+.step-card__text {
+  padding-right: 6.5rem;
+}
+
+@media (min-width: 640px) {
+  .step-card__text {
+    padding-right: 7.5rem;
+  }
+}
+
+.step-card--grid .step-card__text {
+  max-width: 11rem;
+  padding-right: 0;
+}
+
+@media (min-width: 1280px) {
+  .step-card--grid .step-card__text {
+    max-width: 12rem;
+  }
+}
+
+.step-card--stacked .step-card__text {
+  max-width: none;
+  padding-right: 0;
+}
+
+.step-card--expanded .step-card__text {
+  max-width: 14rem;
+  padding-right: 0;
 }
 
 .step-card--grid {

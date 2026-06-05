@@ -26,7 +26,7 @@ function scrollToTop() {
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div class="sm:col-span-2 lg:col-span-1">
           <div class="flex items-center gap-3">
-            <img src="/logo-crest.svg" alt="" class="size-10" width="40" height="46">
+            <img src="/fame-logo.png" alt="" class="size-10" width="40" height="46">
             <div>
               <p class="font-serif text-lg font-normal">Fame College</p>
               <p class="text-xs text-white/70">International Schools</p>
