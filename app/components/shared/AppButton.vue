@@ -11,6 +11,7 @@ const props = withDefaults(
     icon?: 'arrow' | 'phone' | 'none'
     block?: boolean
     disabled?: boolean
+    external?: boolean
   }>(),
   {
     variant: 'primary',
@@ -18,6 +19,7 @@ const props = withDefaults(
     icon: 'none',
     block: false,
     disabled: false,
+    external: false,
   },
 )
 
@@ -43,6 +45,8 @@ const classes = computed(() => [
   <component
     :is="href ? 'a' : 'button'"
     :href="href"
+    :target="href && external ? '_blank' : undefined"
+    :rel="href && external ? 'noopener noreferrer' : undefined"
     :type="href ? undefined : type"
     :disabled="href ? undefined : disabled"
     :class="classes"

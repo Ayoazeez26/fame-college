@@ -70,7 +70,7 @@ onUnmounted(() => {
     >
       <div
         v-if="open && program"
-        class="fixed inset-0 z-50 flex items-end justify-center overscroll-none p-4 sm:items-center sm:p-6"
+        class="fixed inset-0 z-50 mt-16 flex items-end justify-center overscroll-none p-4 sm:items-center sm:p-6"
         role="presentation"
       >
         <div

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Menu, Phone, X } from 'lucide-vue-next'
-import { navLinks } from '~/data/site'
+import { navLinks, whatsappUrl } from '~/data/site'
 
 const mobileOpen = ref(false)
 const headerRef = ref<HTMLElement | null>(null)
@@ -66,7 +66,9 @@ function closeMobile() {
 
       <div class="hidden items-center gap-4 self-center lg:flex">
         <a
-          href="#contact"
+          :href="whatsappUrl"
+          target="_blank"
+          rel="noopener noreferrer"
           class="inline-flex items-center gap-1.5 text-sm font-medium text-green hover:text-green/80"
         >
           Speak to Advisor
@@ -110,7 +112,7 @@ function closeMobile() {
           {{ link.label }}
         </a>
         <div class="mt-3 flex flex-col gap-2 border-t border-border pt-4">
-          <AppButton href="#contact" variant="secondary" icon="phone" block>
+          <AppButton :href="whatsappUrl" variant="secondary" icon="phone" block external>
             Speak to an Advisor
           </AppButton>
           <AppButton href="#contact" variant="primary" icon="arrow" block>
