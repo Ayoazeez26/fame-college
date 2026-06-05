@@ -19,6 +19,13 @@ export const tickerItems = [
 
 export const phones = ['09033240601', '09030652186'] as const
 
+export const whatsappPhone = "09033240601";
+
+export const whatsappMessage =
+  "Hello, I'd like to enquire about admissions at Fame College International School."
+
+export const whatsappUrl = `https://wa.me/234${whatsappPhone.slice(1)}?text=${encodeURIComponent(whatsappMessage)}`
+
 export const email = 'famecollegeeket@yahoo.com'
 
 export const address =

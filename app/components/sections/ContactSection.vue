@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone } from 'lucide-vue-next'
-import { address, email, phones } from '~/data/site'
+import { address, email, phones, whatsappUrl } from '~/data/site'
 </script>
 
 <template>
@@ -56,7 +56,9 @@ import { address, email, phones } from '~/data/site'
             </div>
 
             <a
-              href="#"
+              :href="whatsappUrl"
+              target="_blank"
+              rel="noopener noreferrer"
               class="relative flex gap-4 rounded-2xl bg-green p-5 text-white transition hover:bg-green/90"
             >
               <span
