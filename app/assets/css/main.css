@@ -73,8 +73,7 @@
 
 @layer utilities {
   .section-container {
-    @apply mx-auto w-full max-w-(--width-page) px-4 sm:px-6;
-    @apply min-[1280px]:w-(--width-page) min-[1280px]:max-w-(--width-page) min-[1280px]:px-0;
+    @apply mx-auto w-full max-w-(--width-page) px-4 sm:px-6 lg:px-8;
   }
 }
 

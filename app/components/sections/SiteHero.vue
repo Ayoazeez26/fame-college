@@ -10,7 +10,7 @@ const heroStats = [
 </script>
 
 <template>
-  <section class="overflow-hidden pb-12 pt-8 lg:pb-20 lg:pt-12">
+  <section class="pb-12 pt-8 lg:pb-20 lg:pt-12">
     <div class="section-container">
       <div class="flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
         <div class="w-full min-w-0 max-w-[712px] lg:flex-1">
@@ -61,7 +61,7 @@ const heroStats = [
           </div>
 
           <div
-            class="absolute -left-2 top-12 flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-lg sm:-left-12">
+            class="hero-badge-float absolute -left-2 top-12 flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-lg sm:-left-12">
             <span
               class="flex size-8 shrink-0 items-center justify-center rounded-full bg-green sm:size-10"
             >
@@ -83,7 +83,7 @@ const heroStats = [
           </div>
 
           <div
-            class="absolute bottom-24 right-2 flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 shadow-lg sm:-right-20">
+            class="hero-badge-float hero-badge-float--delayed absolute bottom-24 right-2 flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 shadow-lg sm:-right-20">
             <span class="flex size-8 items-center justify-center rounded-full bg-navy-bg text-white">
               <Globe class="size-4" aria-hidden="true" />
             </span>
@@ -105,3 +105,24 @@ const heroStats = [
     </div>
   </section>
 </template>
+
+<style scoped>
+@keyframes hero-badge-float-y {
+  0%,
+  100% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.hero-badge-float {
+  animation: hero-badge-float-y 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hero-badge-float--delayed {
+  animation-delay: 2s;
+}
+</style>

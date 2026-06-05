@@ -44,7 +44,7 @@ const canGoNext = computed(() => activeIndex.value < steps.length - 1)
 const allExpanded = computed(() => activeIndex.value === steps.length - 1)
 
 const stackCardWidthRem = 22.5
-const stackOffsetRem = 5.5
+const stackOffsetRem = 12.5
 
 const stackCount = computed(() => steps.length - activeIndex.value - 1)
 
@@ -287,11 +287,11 @@ function next() {
   padding-right: 0;
 }
 
-@media (min-width: 1280px) {
+/* @media (min-width: 1280px) {
   .step-card--grid .step-card__text {
     max-width: 12rem;
   }
-}
+} */
 
 .step-card--stacked .step-card__text {
   max-width: none;
@@ -299,7 +299,7 @@ function next() {
 }
 
 .step-card--expanded .step-card__text {
-  max-width: 14rem;
+  /* max-width: 14rem; */
   padding-right: 0;
 }
 
