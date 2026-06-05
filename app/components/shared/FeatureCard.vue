@@ -8,7 +8,7 @@ defineProps<{
 
 <template>
   <div
-    class="rounded-2xl border border-border bg-white"
+    class="group rounded-2xl border border-border bg-white transition-[border-color,box-shadow] duration-300 hover:border-green hover:shadow-[0_8px_30px_rgba(11,24,50,0.12)]"
     :class="compact ? 'p-4' : 'p-5'"
   >
     <div v-if="$slots.icon" class="mb-3">

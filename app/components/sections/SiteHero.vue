@@ -62,8 +62,17 @@ const heroStats = [
 
           <div
             class="absolute -left-2 top-12 flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-lg sm:-left-12">
-            <span class="flex size-10 shrink-0 items-center justify-center rounded-full bg-green">
-              <img src="/icons/seal-check.png" alt="" class="size-5" width="20" height="20" aria-hidden="true">
+            <span
+              class="flex size-8 shrink-0 items-center justify-center rounded-full bg-green sm:size-10"
+            >
+              <img
+                src="/icons/seal-check.png"
+                alt=""
+                class="size-3.5 sm:size-5"
+                width="20"
+                height="20"
+                aria-hidden="true"
+              >
             </span>
             <span class="flex flex-col">
               <span class="text-xs text-gray-body">Accredited</span>
@@ -88,7 +97,7 @@ const heroStats = [
 
           <div
             class="absolute -bottom-8 left-1/2 flex -translate-x-1/2 items-start gap-2 rounded-xl bg-white px-6 py-4 shadow-xl">
-            <span class="font-serif text-4xl font-semibold text-navy">95%</span>
+            <span class="font-serif text-2xl md:text-4xl font-semibold text-navy">95%</span>
             <span class="text-sm text-gray-body">Exam<br /> Pass Rate</span>
           </div>
         </div>

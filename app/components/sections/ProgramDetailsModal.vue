@@ -94,7 +94,7 @@ onUnmounted(() => {
             role="dialog"
             aria-modal="true"
             :aria-labelledby="titleId"
-            class="relative flex max-h-[min(90dvh,800px)] w-full max-w-2xl flex-col overflow-hidden rounded-3xl rounded-b-none bg-white shadow-[0_24px_60px_rgba(11,24,50,0.2)] sm:max-h-[min(90vh,800px)] sm:rounded-3xl"
+            class="relative flex max-h-[min(80dvh,700px)] w-full max-w-2xl flex-col overflow-hidden rounded-3xl rounded-b-none bg-white shadow-[0_24px_60px_rgba(11,24,50,0.2)] sm:max-h-[min(80vh,700px)] sm:rounded-3xl"
           >
             <div class="overflow-y-auto px-6 pb-6 pt-6 sm:px-8 sm:pt-8">
               <div class="flex items-start justify-between gap-4">

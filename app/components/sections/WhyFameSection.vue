@@ -77,10 +77,10 @@ const supportCard = cards[4]
         <article
           v-for="card in cards"
           :key="card.id"
-          class="why-card relative flex min-h-[200px] min-w-0 flex-col overflow-hidden rounded-2xl border border-border bg-white p-6"
+          class="why-card group relative flex min-h-[200px] min-w-0 flex-col overflow-hidden rounded-2xl border border-border bg-white p-6 transition-[border-color,box-shadow] duration-300 hover:border-green hover:shadow-[0_8px_30px_rgba(11,24,50,0.12)]"
         >
           <div
-            class="why-card-icon pointer-events-none absolute right-4 top-4 bg-[#EAEAEA]"
+            class="why-card-icon pointer-events-none absolute right-4 top-4 bg-[#EAEAEA] transition-colors duration-300 group-hover:bg-green"
             :class="card.iconClass"
             :style="{
               WebkitMaskImage: `url(${card.icon})`,
@@ -102,11 +102,11 @@ const supportCard = cards[4]
       <!-- Desktop: 305 | (412 + 522) / (520 + 412), 20px gaps → 1279px -->
       <div class="mt-12 hidden lg:flex lg:gap-5">
         <article
-          class="why-card relative flex min-h-[460px] shrink-0 flex-col overflow-hidden rounded-2xl border border-border bg-white p-6"
+          class="why-card group relative flex min-h-[460px] shrink-0 flex-col overflow-hidden rounded-2xl border border-border bg-white p-6 transition-[border-color,box-shadow] duration-300 hover:border-green hover:shadow-[0_8px_30px_rgba(11,24,50,0.12)]"
           :class="globalCard.widthClass"
         >
           <div
-            class="why-card-icon pointer-events-none absolute right-4 top-4 bg-[#EAEAEA]"
+            class="why-card-icon pointer-events-none absolute right-4 top-4 bg-[#EAEAEA] transition-colors duration-300 group-hover:bg-green"
             :class="globalCard.iconClass"
             :style="{
               WebkitMaskImage: `url(${globalCard.icon})`,
@@ -127,11 +127,11 @@ const supportCard = cards[4]
         <div class="flex flex-col gap-5">
           <div class="flex gap-5">
             <article
-              class="why-card relative flex min-h-[220px] shrink-0 flex-col overflow-hidden rounded-2xl border border-border bg-white p-6"
+              class="why-card group relative flex min-h-[220px] shrink-0 flex-col overflow-hidden rounded-2xl border border-border bg-white p-6 transition-[border-color,box-shadow] duration-300 hover:border-green hover:shadow-[0_8px_30px_rgba(11,24,50,0.12)]"
               :class="pathwayCard.widthClass"
             >
               <div
-                class="why-card-icon pointer-events-none absolute right-4 top-4 bg-[#EAEAEA]"
+                class="why-card-icon pointer-events-none absolute right-4 top-4 bg-[#EAEAEA] transition-colors duration-300 group-hover:bg-green"
                 :class="pathwayCard.iconClass"
                 :style="{
                   WebkitMaskImage: `url(${pathwayCard.icon})`,
@@ -149,11 +149,11 @@ const supportCard = cards[4]
               </div>
             </article>
             <article
-              class="why-card relative flex min-h-[220px] shrink-0 flex-col overflow-hidden rounded-2xl border border-border bg-white p-6"
+              class="why-card group relative flex min-h-[220px] shrink-0 flex-col overflow-hidden rounded-2xl border border-border bg-white p-6 transition-[border-color,box-shadow] duration-300 hover:border-green hover:shadow-[0_8px_30px_rgba(11,24,50,0.12)]"
               :class="flexibleCard.widthClass"
             >
               <div
-                class="why-card-icon pointer-events-none absolute right-4 top-4 bg-[#EAEAEA]"
+                class="why-card-icon pointer-events-none absolute right-4 top-4 bg-[#EAEAEA] transition-colors duration-300 group-hover:bg-green"
                 :class="flexibleCard.iconClass"
                 :style="{
                   WebkitMaskImage: `url(${flexibleCard.icon})`,
@@ -173,11 +173,11 @@ const supportCard = cards[4]
           </div>
           <div class="flex gap-5">
             <article
-              class="why-card relative flex min-h-[220px] shrink-0 flex-col overflow-hidden rounded-2xl border border-border bg-white p-6"
+              class="why-card group relative flex min-h-[220px] shrink-0 flex-col overflow-hidden rounded-2xl border border-border bg-white p-6 transition-[border-color,box-shadow] duration-300 hover:border-green hover:shadow-[0_8px_30px_rgba(11,24,50,0.12)]"
               :class="resultsCard.widthClass"
             >
               <div
-                class="why-card-icon pointer-events-none absolute right-4 top-4 bg-[#EAEAEA]"
+                class="why-card-icon pointer-events-none absolute right-4 top-4 bg-[#EAEAEA] transition-colors duration-300 group-hover:bg-green"
                 :class="resultsCard.iconClass"
                 :style="{
                   WebkitMaskImage: `url(${resultsCard.icon})`,
@@ -195,11 +195,11 @@ const supportCard = cards[4]
               </div>
             </article>
             <article
-              class="why-card relative flex min-h-[220px] shrink-0 flex-col overflow-hidden rounded-2xl border border-border bg-white p-6"
+              class="why-card group relative flex min-h-[220px] shrink-0 flex-col overflow-hidden rounded-2xl border border-border bg-white p-6 transition-[border-color,box-shadow] duration-300 hover:border-green hover:shadow-[0_8px_30px_rgba(11,24,50,0.12)]"
               :class="supportCard.widthClass"
             >
               <div
-                class="why-card-icon pointer-events-none absolute right-4 top-4 bg-[#EAEAEA]"
+                class="why-card-icon pointer-events-none absolute right-4 top-4 bg-[#EAEAEA] transition-colors duration-300 group-hover:bg-green"
                 :class="supportCard.iconClass"
                 :style="{
                   WebkitMaskImage: `url(${supportCard.icon})`,

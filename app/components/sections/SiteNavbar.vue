@@ -3,31 +3,29 @@ import { Menu, Phone, X } from 'lucide-vue-next'
 import { navLinks } from '~/data/site'
 
 const mobileOpen = ref(false)
-const activeHref = ref('#about')
+const headerRef = ref<HTMLElement | null>(null)
+
+const sectionHrefs = navLinks.map((link) => link.href)
+const headerOffset = computed(() => headerRef.value?.offsetHeight ?? 80)
+
+const { activeHref } = useScrollSpy(sectionHrefs, () => headerOffset.value)
 
 function isActive(href: string) {
   return activeHref.value === href
 }
 
-function onNavClick(href: string) {
-  activeHref.value = href
+function onNavClick() {
   closeMobile()
 }
 
 function closeMobile() {
   mobileOpen.value = false
 }
-
-onMounted(() => {
-  const hash = window.location.hash
-  if (hash && navLinks.some((link) => link.href === hash)) {
-    activeHref.value = hash
-  }
-})
 </script>
 
 <template>
   <header
+    ref="headerRef"
     class="site-header sticky top-0 z-50 bg-white"
   >
     <div class="section-container flex h-16 items-center justify-between gap-4 lg:h-20">
@@ -59,7 +57,8 @@ onMounted(() => {
               ? 'border-green text-green'
               : 'border-transparent text-gray-body hover:text-navy'
           "
-          @click="onNavClick(link.href)"
+          :aria-current="isActive(link.href) ? 'true' : undefined"
+          @click="onNavClick"
         >
           {{ link.label }}
         </a>
@@ -105,7 +104,8 @@ onMounted(() => {
               ? 'bg-green/10 text-green'
               : 'text-gray-body hover:bg-gray-50'
           "
-          @click="onNavClick(link.href)"
+          :aria-current="isActive(link.href) ? 'true' : undefined"
+          @click="onNavClick"
         >
           {{ link.label }}
         </a>

@@ -46,8 +46,8 @@ const features = [
           <div
             class="absolute -bottom-6 -right-12 rounded-2xl bg-navy-bg px-5 py-4 shadow-lg max-w-[259px]"
           >
-            <p class="font-serif text-3xl font-normal text-white">15+</p>
-            <p class="mt-1 font-medium uppercase tracking-wider text-white/70">
+            <p class="font-serif text-2xl sm:text-3xl font-normal text-white">15+</p>
+            <p class="mt-1 text-sm sm:text-base font-medium uppercase tracking-wider text-white/70">
               Years shaping futures in Eket
             </p>
           </div>
@@ -76,11 +76,11 @@ const features = [
             >
               <template #icon>
                 <span
-                  class="flex size-10 items-center justify-center rounded-full bg-[#EBF4EF]"
+                  class="flex size-10 items-center justify-center rounded-full bg-[#EBF4EF] transition-colors duration-300 group-hover:bg-green"
                 >
                   <component
                     :is="feat.icon"
-                    class="size-5 text-navy"
+                    class="size-5 text-navy transition-colors duration-300 group-hover:text-white"
                     aria-hidden="true"
                   />
                 </span>

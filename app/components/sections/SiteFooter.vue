@@ -22,9 +22,9 @@ function scrollToTop() {
 
 <template>
   <footer class="bg-navy-footer text-white">
-    <div class="section-container py-14 lg:py-16">
-      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="sm:col-span-2 lg:col-span-1">
+    <div class="section-container py-14 lg:py-16 lg:pt-[100px]">
+      <div class="flex flex-col md:flex-row justify-between gap-20">
+        <div class="flex flex-col gap-4">
           <div class="flex items-center gap-3">
             <img src="/fame-logo.png" alt="" class="size-10" width="40" height="46">
             <div>
@@ -52,48 +52,49 @@ function scrollToTop() {
             </a>
           </div>
         </div>
+        <div class="flex flex-col md:flex-row items-start gap-12 md:gap-32">
+          <div>
+            <h4 class="text-sm font-semibold text-green">Explore</h4>
+            <ul class="mt-4 space-y-2">
+              <li v-for="link in footerExplore" :key="link.label">
+                <a
+                  :href="link.href"
+                  class="text-sm text-white/70 transition hover:text-white"
+                >
+                  {{ link.label }}
+                </a>
+              </li>
+            </ul>
+          </div>
 
-        <div>
-          <h4 class="text-sm font-semibold text-green">Explore</h4>
-          <ul class="mt-4 space-y-2">
-            <li v-for="link in footerExplore" :key="link.label">
-              <a
-                :href="link.href"
-                class="text-sm text-white/70 transition hover:text-white"
-              >
-                {{ link.label }}
-              </a>
-            </li>
-          </ul>
-        </div>
+          <div>
+            <h4 class="text-sm font-semibold text-green">Programmes</h4>
+            <ul class="mt-4 space-y-2">
+              <li v-for="link in footerProgrammes" :key="link.label">
+                <a
+                  :href="link.href"
+                  class="text-sm text-white/70 transition hover:text-white"
+                >
+                  {{ link.label }}
+                </a>
+              </li>
+            </ul>
+          </div>
 
-        <div>
-          <h4 class="text-sm font-semibold text-green">Programmes</h4>
-          <ul class="mt-4 space-y-2">
-            <li v-for="link in footerProgrammes" :key="link.label">
-              <a
-                :href="link.href"
-                class="text-sm text-white/70 transition hover:text-white"
-              >
-                {{ link.label }}
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-sm font-semibold text-green">Contact</h4>
-          <ul class="mt-4 space-y-2 text-sm text-white/70">
-            <li v-for="phone in phones" :key="phone">
-              <a :href="`tel:${phone}`" class="hover:text-white">{{ phone }}</a>
-            </li>
-            <li>
-              <a :href="`mailto:${email}`" class="hover:text-white">{{ email }}</a>
-            </li>
-            <li class="leading-relaxed">
-              Eket, Akwa Ibom
-            </li>
-          </ul>
+          <div>
+            <h4 class="text-sm font-semibold text-green">Contact</h4>
+            <ul class="mt-4 space-y-2 text-sm text-white/70">
+              <li v-for="phone in phones" :key="phone">
+                <a :href="`tel:${phone}`" class="hover:text-white">{{ phone }}</a>
+              </li>
+              <li>
+                <a :href="`mailto:${email}`" class="hover:text-white">{{ email }}</a>
+              </li>
+              <li class="leading-relaxed">
+                Eket, Akwa Ibom
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
