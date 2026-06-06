@@ -283,7 +283,7 @@ function next() {
 }
 
 .step-card--grid .step-card__text {
-  max-width: 11rem;
+  /* max-width: 11rem; */
   padding-right: 0;
 }
 

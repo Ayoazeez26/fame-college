@@ -13,15 +13,15 @@ defineProps<{
         :src="teacher.image"
         :alt="teacher.name"
         class="size-full object-cover"
-        width="160"
-        height="160"
+        width="180"
+        height="180"
         loading="lazy"
       >
     </div>
-    <h3 class="font-serif text-base font-normal text-navy">
+    <h3 class="font-serif text-base md:text-2xl font-normal text-navy">
       {{ teacher.name }}
     </h3>
-    <p class="mt-1 text-sm font-medium text-green">
+    <p class="mt-1 text-sm md:text-base font-medium text-green">
       {{ teacher.subject }}
     </p>
   </article>
@@ -38,8 +38,8 @@ defineProps<{
 
 @media (min-width: 640px) {
   .teacher-photo {
-    width: 11.5rem;
-    height: 11.5rem;
+    width: 240px;
+    height: 240px;
   }
 }
 </style>

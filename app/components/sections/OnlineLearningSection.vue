@@ -47,7 +47,7 @@ const features = [
             muted
             loop
             playsinline
-            preload="metadata"
+            preload="auto"
             poster="/images/online-learning-poster.webp"
             aria-label="Fame College online learning platform demo"
           >
